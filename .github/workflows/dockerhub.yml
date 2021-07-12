@@ -34,7 +34,7 @@ jobs:
           echo "RLZ_FULL_VER=$full_ver" >> $GITHUB_ENV
           echo "RLZ_SHORT_VER=$short_ver" >> $GITHUB_ENV
       - name: Instantiate Reliza status as Rejected to handle possible build failure
-        run: echo "--status rejected " > reliza_command
+        run: echo "--status complete " > reliza_command
       - name: Submit metadata to Reliza Hub
         run: |
           echo -n "-b $GITHUB_REF -k ${{ secrets.RELIZA_API_KEY }} -i ${{ secrets.RELIZA_API_ID }} -v $RLZ_FULL_VER -u https://test.relizahub.com " >> reliza_command
